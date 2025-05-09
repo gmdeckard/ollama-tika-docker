@@ -1,6 +1,6 @@
 # Ollama, Apache Tika, PostgreSQL, and Ubuntu Jammy Docker Compose
 
-This repository contains a Docker Compose setup for running an Ollama server, an Apache Tika server, a PostgreSQL database server, and an Ubuntu Jammy server.
+This repository contains a Docker Compose setup for running an Ollama server, an Apache Tika server, a PostgreSQL database server, and an Ubuntu Jammy server to create a Chat UI of your choice.
 
 ## Services
 
