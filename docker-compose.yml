@@ -1,0 +1,42 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    ports:
+      - "8000:8000"
+      - "11434:11434"  # External:Internal port
+    environment:
+      - OLLAMA_ENV=production
+    volumes:
+      - ollama_data:/data
+    restart: always
+
+  ubuntu:
+    image: ubuntu:jammy
+    container_name: ubuntu_jammy
+    restart: always
+    command: sleep infinity  # This keeps the container running with an infinite sleep
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=yourdatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  tika:
+    image: apache/tika:latest
+    container_name: tika
+    ports:
+      - "9998:9998"
+    restart: always
+
+volumes:
+  ollama_data:
+  postgres_data:
